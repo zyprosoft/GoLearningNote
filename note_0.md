@@ -8,9 +8,8 @@
 3. array 初始化需要指定长度，并且后续是不可以变化大小的。如 books = [3]string;
    也可以初始化指针类型数组，内部包含的是指针地址, 这种情况下如果复制数组，不会复制指针内代表的内容。
    books1 = [3]*string;
-   books = [3]*string{0=new string(),1=new string(),2=new string()};
+   books = [3]*string{0=new(string),1=new(string),2=new(string)};
    books1 = books;
    这种情况下books1和books共享同一块内存；
 
 4. slice 是以array基础实现的可变数据结构，通过append接口来实现动态添加内容，但是仍然不可以超过slice定义的最大容量
-   
